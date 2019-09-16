@@ -8,7 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
-import android.webkit.WebViewClient;
+
+import org.apache.cordova.engine.SystemWebChromeClient;
+import org.apache.cordova.engine.SystemWebViewEngine;
 
 public class TestFragment extends Fragment {
     public TestFragment() {
@@ -41,11 +43,19 @@ public class TestFragment extends Fragment {
         });
         cordovaView.getWebview().reload();
         cordovaView.getWebview().goBack();
-        cordovaView.getWebview().setWebChromeClient(new WebChromeClient(){
+        cordovaView.getWebview().setWebChromeClient(new SystemWebChromeClient(cordovaView.getSystemWebViewEngine()) {
+            //监听进度
             @Override
             public void onProgressChanged(WebView view, int newProgress) {
-                //进度条
                 super.onProgressChanged(view, newProgress);
+                //设置页面加载进度
+                Log.i("newProgress","newProgress: "+newProgress);
+            }
+
+            @Override
+            public void onReceivedTitle(WebView view, String title) {
+                super.onReceivedTitle(view, title);
+                //设置标题
             }
         });
     }

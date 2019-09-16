@@ -28,6 +28,7 @@ import org.apache.cordova.CordovaWebViewImpl;
 import org.apache.cordova.PluginEntry;
 import org.apache.cordova.PluginManager;
 import org.apache.cordova.engine.SystemWebView;
+import org.apache.cordova.engine.SystemWebViewEngine;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -270,12 +271,20 @@ public class CordovaView extends RelativeLayout {
      *
      * @return Webview组件
      */
-    public WebView getWebview() {
+    public SystemWebView getWebview() {
         if (appView != null && appView.getView() instanceof WebView) {
             SystemWebView webView = (SystemWebView) appView.getView();
             return webView;
         }
         return null;
+    }
+
+    /**
+     * 获得系统webview引擎
+     * @return 系统webview引擎
+     */
+    public SystemWebViewEngine getSystemWebViewEngine(){
+        return (SystemWebViewEngine) appView.getEngine();
     }
 
     /**
