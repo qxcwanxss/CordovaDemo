@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="/Users/xc/Documents/Jobs/Codes/test/TestCordova/mynativeapp/CordovaLib/src/main/jniLibs"/></dataSet><dataSet config="debug"><source path="/Users/xc/Documents/Jobs/Codes/test/TestCordova/mynativeapp/CordovaLib/src/debug/jniLibs"/></dataSet></merger>
